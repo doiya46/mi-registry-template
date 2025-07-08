@@ -37,7 +37,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build project
+      - name: Build registry
+        run: pnpm run registry:build
+
+      - name: Build static site
         run: pnpm run build
 
       - name: Setup Pages
@@ -46,7 +49,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './public/r'
+          path: './out'
 
   deploy:
     environment:
