@@ -41,6 +41,8 @@ jobs:
         run: pnpm run registry:build
 
       - name: Build static site
+        env:
+          NEXT_PUBLIC_BASE_URL: https://doiya46.github.io/mi-registry-template
         run: pnpm run build
 
       - name: Setup Pages
@@ -61,4 +63,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v4
+
         uses: actions/deploy-pages@v4
